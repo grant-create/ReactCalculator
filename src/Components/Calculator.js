@@ -7,13 +7,23 @@ export default class Calculator extends Component{
             this.state = {
                 num1: 0,
                 num2: 0,
-                result: 0
+                result: ''
             }
     }
 
     setNum = (e, num) => {
         this.setState({ [num]: e.target.value})
     }
+
+
+
+    sum = (num1, num2) => {
+        this.setState({
+            result: parseInt(num1) + parseInt(num2)
+        })
+        console.log(this.state.result)
+    }
+
 
 
 
@@ -42,8 +52,8 @@ export default class Calculator extends Component{
                 />
 
 
-                <button>=</button>
-                <h3>Addition results go here!</h3>
+                <button onClick={() => this.sum(this.state.num1, this.state.num2)}>=</button>
+                <h3>{this.state.result}</h3>
             
             
             </div>
